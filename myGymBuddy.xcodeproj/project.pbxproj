@@ -11,14 +11,36 @@
 		DE03D95F286CAA2C00E12E0F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE03D95E286CAA2C00E12E0F /* ContentView.swift */; };
 		DE03D961286CAA2D00E12E0F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE03D960286CAA2D00E12E0F /* Assets.xcassets */; };
 		DE03D964286CAA2D00E12E0F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE03D963286CAA2D00E12E0F /* Preview Assets.xcassets */; };
+		DE897A4328B1725900EFFCC6 /* HomePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE897A4228B1725900EFFCC6 /* HomePageView.swift */; };
+		DE9BEF4028B7BEAA00D22AD6 /* WarmUpPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9BEF3F28B7BEAA00D22AD6 /* WarmUpPageView.swift */; };
+		DE9BEF6128BFB8EF00D22AD6 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9BEF6028BFB8EF00D22AD6 /* Persistence.swift */; };
+		DE9BEF6428BFB95F00D22AD6 /* CoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DE9BEF6228BFB95F00D22AD6 /* CoreDataModel.xcdatamodeld */; };
+		DE9BEF6728BFB97900D22AD6 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE9BEF6628BFB97900D22AD6 /* CoreData.framework */; };
+		DECB548C28C79A28005A3B8C /* ExerciseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECB548B28C79A28005A3B8C /* ExerciseCell.swift */; };
+		DECB548E28C8DE91005A3B8C /* CoreDataExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECB548D28C8DE91005A3B8C /* CoreDataExtension.swift */; };
+		DECB549028C8E719005A3B8C /* EditWorkoutRoutineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECB548F28C8E719005A3B8C /* EditWorkoutRoutineView.swift */; };
+		DEE569DF28C3F16F00EA0244 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE569DE28C3F16F00EA0244 /* CoreDataManager.swift */; };
+		DEF5D27728B3C22900654C11 /* EditExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF5D27628B3C22900654C11 /* EditExerciseView.swift */; };
+		DEF5D27928B51E7900654C11 /* MyWorkOutPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF5D27828B51E7900654C11 /* MyWorkOutPageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		DE03D959286CAA2C00E12E0F /* myGymBuddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myGymBuddy.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE03D959286CAA2C00E12E0F /* +.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "+.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE03D95C286CAA2C00E12E0F /* myGymBuddyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myGymBuddyApp.swift; sourceTree = "<group>"; };
 		DE03D95E286CAA2C00E12E0F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		DE03D960286CAA2D00E12E0F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DE03D963286CAA2D00E12E0F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		DE897A4228B1725900EFFCC6 /* HomePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageView.swift; sourceTree = "<group>"; };
+		DE9BEF3F28B7BEAA00D22AD6 /* WarmUpPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarmUpPageView.swift; sourceTree = "<group>"; };
+		DE9BEF6028BFB8EF00D22AD6 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		DE9BEF6328BFB95F00D22AD6 /* CoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataModel.xcdatamodel; sourceTree = "<group>"; };
+		DE9BEF6628BFB97900D22AD6 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		DECB548B28C79A28005A3B8C /* ExerciseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCell.swift; sourceTree = "<group>"; };
+		DECB548D28C8DE91005A3B8C /* CoreDataExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataExtension.swift; sourceTree = "<group>"; };
+		DECB548F28C8E719005A3B8C /* EditWorkoutRoutineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditWorkoutRoutineView.swift; sourceTree = "<group>"; };
+		DEE569DE28C3F16F00EA0244 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		DEF5D27628B3C22900654C11 /* EditExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditExerciseView.swift; sourceTree = "<group>"; };
+		DEF5D27828B51E7900654C11 /* MyWorkOutPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyWorkOutPageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE9BEF6728BFB97900D22AD6 /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -37,13 +60,14 @@
 			children = (
 				DE03D95B286CAA2C00E12E0F /* myGymBuddy */,
 				DE03D95A286CAA2C00E12E0F /* Products */,
+				DE9BEF6528BFB97900D22AD6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
 		DE03D95A286CAA2C00E12E0F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DE03D959286CAA2C00E12E0F /* myGymBuddy.app */,
+				DE03D959286CAA2C00E12E0F /* +.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -51,8 +75,12 @@
 		DE03D95B286CAA2C00E12E0F /* myGymBuddy */ = {
 			isa = PBXGroup;
 			children = (
+				DEE569DD28C3F12200EA0244 /* CoreDataManager */,
 				DE03D95C286CAA2C00E12E0F /* myGymBuddyApp.swift */,
-				DE03D95E286CAA2C00E12E0F /* ContentView.swift */,
+				DECB548D28C8DE91005A3B8C /* CoreDataExtension.swift */,
+				DECB548A28C78AB7005A3B8C /* View */,
+				DE9BEF6228BFB95F00D22AD6 /* CoreDataModel.xcdatamodeld */,
+				DE9BEF6028BFB8EF00D22AD6 /* Persistence.swift */,
 				DE03D960286CAA2D00E12E0F /* Assets.xcassets */,
 				DE03D962286CAA2D00E12E0F /* Preview Content */,
 			);
@@ -67,12 +95,42 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		DE9BEF6528BFB97900D22AD6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DE9BEF6628BFB97900D22AD6 /* CoreData.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DECB548A28C78AB7005A3B8C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DE9BEF3F28B7BEAA00D22AD6 /* WarmUpPageView.swift */,
+				DEF5D27628B3C22900654C11 /* EditExerciseView.swift */,
+				DE897A4228B1725900EFFCC6 /* HomePageView.swift */,
+				DE03D95E286CAA2C00E12E0F /* ContentView.swift */,
+				DECB548B28C79A28005A3B8C /* ExerciseCell.swift */,
+				DEF5D27828B51E7900654C11 /* MyWorkOutPageView.swift */,
+				DECB548F28C8E719005A3B8C /* EditWorkoutRoutineView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DEE569DD28C3F12200EA0244 /* CoreDataManager */ = {
+			isa = PBXGroup;
+			children = (
+				DEE569DE28C3F16F00EA0244 /* CoreDataManager.swift */,
+			);
+			path = CoreDataManager;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		DE03D958286CAA2C00E12E0F /* myGymBuddy */ = {
+		DE03D958286CAA2C00E12E0F /* + */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DE03D967286CAA2D00E12E0F /* Build configuration list for PBXNativeTarget "myGymBuddy" */;
+			buildConfigurationList = DE03D967286CAA2D00E12E0F /* Build configuration list for PBXNativeTarget "+" */;
 			buildPhases = (
 				DE03D955286CAA2C00E12E0F /* Sources */,
 				DE03D956286CAA2C00E12E0F /* Frameworks */,
@@ -82,9 +140,9 @@
 			);
 			dependencies = (
 			);
-			name = myGymBuddy;
+			name = "+";
 			productName = myGymBuddy;
-			productReference = DE03D959286CAA2C00E12E0F /* myGymBuddy.app */;
+			productReference = DE03D959286CAA2C00E12E0F /* +.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -115,7 +173,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				DE03D958286CAA2C00E12E0F /* myGymBuddy */,
+				DE03D958286CAA2C00E12E0F /* + */,
 			);
 		};
 /* End PBXProject section */
@@ -137,8 +195,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE9BEF6128BFB8EF00D22AD6 /* Persistence.swift in Sources */,
 				DE03D95F286CAA2C00E12E0F /* ContentView.swift in Sources */,
+				DECB548E28C8DE91005A3B8C /* CoreDataExtension.swift in Sources */,
+				DE897A4328B1725900EFFCC6 /* HomePageView.swift in Sources */,
+				DECB548C28C79A28005A3B8C /* ExerciseCell.swift in Sources */,
+				DECB549028C8E719005A3B8C /* EditWorkoutRoutineView.swift in Sources */,
+				DEF5D27928B51E7900654C11 /* MyWorkOutPageView.swift in Sources */,
 				DE03D95D286CAA2C00E12E0F /* myGymBuddyApp.swift in Sources */,
+				DEF5D27728B3C22900654C11 /* EditExerciseView.swift in Sources */,
+				DEE569DF28C3F16F00EA0244 /* CoreDataManager.swift in Sources */,
+				DE9BEF6428BFB95F00D22AD6 /* CoreDataModel.xcdatamodeld in Sources */,
+				DE9BEF4028B7BEAA00D22AD6 /* WarmUpPageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,6 +332,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"myGymBuddy/Preview Content\"";
@@ -275,6 +344,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -282,6 +352,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.signup.myGymBuddy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -293,6 +364,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"myGymBuddy/Preview Content\"";
@@ -304,6 +376,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -311,6 +384,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.signup.myGymBuddy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -329,7 +403,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DE03D967286CAA2D00E12E0F /* Build configuration list for PBXNativeTarget "myGymBuddy" */ = {
+		DE03D967286CAA2D00E12E0F /* Build configuration list for PBXNativeTarget "+" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DE03D968286CAA2D00E12E0F /* Debug */,
@@ -339,6 +413,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		DE9BEF6228BFB95F00D22AD6 /* CoreDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				DE9BEF6328BFB95F00D22AD6 /* CoreDataModel.xcdatamodel */,
+			);
+			currentVersion = DE9BEF6328BFB95F00D22AD6 /* CoreDataModel.xcdatamodel */;
+			path = CoreDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = DE03D951286CAA2C00E12E0F /* Project object */;
 }
