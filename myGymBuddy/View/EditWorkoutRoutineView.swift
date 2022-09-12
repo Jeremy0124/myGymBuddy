@@ -11,11 +11,8 @@ struct EditWorkoutRoutineView: View {
     @Environment(\.presentationMode)
     var presentationMode: Binding<PresentationMode>
     @Environment(\.managedObjectContext) private var viewContext
-    @State var workoutRoutine: WorkoutRoutine?
-    @State var workoutTitle: String
-    
-
-    @State var exercises: [Exercise]
+    @ObservedObject var workoutRoutine: WorkoutRoutine
+    @Binding var exercises: [Exercise]
     
     let formatter: NumberFormatter = {
         let formatter = NumberFormatter()
@@ -23,56 +20,83 @@ struct EditWorkoutRoutineView: View {
         return formatter
     }()
     
-    init(exercises: [Exercise], workoutRoutine: WorkoutRoutine) {
-        _workoutRoutine = State(initialValue: workoutRoutine)
-        _exercises = State(initialValue: exercises)
-        _workoutTitle = State(initialValue: workoutRoutine.title ?? "")
-        _exercises = State(initialValue: workoutRoutine.exercises!.allObjects as! [Exercise])
+    init(workoutRoutine: WorkoutRoutine) {
+        self.workoutRoutine =  workoutRoutine
+        _exercises = Binding<[Exercise]>(get: {
+            workoutRoutine.exercises!.allObjects as! [Exercise]
+        }, set: { newExercises in
+            workoutRoutine.exercises = NSSet(array: newExercises)
+        })
     }
     
     
     
     var body: some View {
-        Form {
-            Section(header: Text("Name of my Workout")){
-                TextField("Workout Name", text: $workoutTitle)
-            }
-            
-            Section(header: Text("Add to my Exercise")){
-                ForEach(exercises) { exercise in
-                    ExerciseCell(exercise: exercise)
+        NavigationView {
+            Form {
+                Section(header: Text("Name of my Workout")){
+                    TextField("Workout Name", text: $workoutRoutine.title ?? "")
+                }
+                
+                Section(header: Text("Exercises")){
+                    ForEach(exercises) { exercise in
+                        ExerciseCell(exercise: exercise)
+                    }
                     
                 }
                 
+                Section() {
+                    // NO Need for a Save Button
+                    Button("+", action: addExercise)
+                        .font(.headline)
+                        .frame(maxWidth: .infinity, alignment: .center)
+                }
             }
-            
-//            Section() {
-//                // NO Need for a Save Button
-//                Button("Save", action: saveAction)
-//                    .font(.headline)
-//                    .frame(maxWidth: .infinity, alignment: .center)
-//            }
-//        }
-//    }
-//
-//    func saveAction() {
-//        withAnimation {
-//            if exercises == nil {
-//                exercises = Exercise(context: viewContext)
-//            }
-//            exercises?.title = title
-//            exercises?.desc = desc
-//            exercises?.reps = Int64(reps)
-//            exercises?.sets = Int64(sets)
-//            exercises?.timer = Int64(timer)
+            .toolbar {
+                Button("Save") {
+                    saveCoreDataContext()
+                    // TODO: dismiss the modal
+                    
+                }
+            }
+            .onDisappear {
+                viewContext.rollback()
+            }
+            .onAppear {
+                saveCoreDataContext()
+            }
+        }
+        
+    }
+    
+    func addExercise() {
+        withAnimation {
+            let exercise = Exercise(context: viewContext)
+            exercise.title = ""
+            exercise.desc = ""
+            exercise.reps = 0
+            exercise.sets = 0
+            exercise.timer = 0
+            exercises.append(exercise)
         }
     }
-
+    
+    func saveCoreDataContext() {
+        do {
+           try viewContext.save()
+        }
+        catch {
+            print(error)
+            // Problem with the save func
+            fatalError()
+        }
+    }
+}
 
 struct EditWorkoutRoutineView_Previews: PreviewProvider {
     static var previews: some View {
-        EditWorkoutRoutineView(exercises: Exercise(), workoutRoutine: WorkoutRoutine())
+        EditWorkoutRoutineView(workoutRoutine: WorkoutRoutine())
     }
 }
-    }
+
 

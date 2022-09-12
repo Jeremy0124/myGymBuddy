@@ -14,6 +14,8 @@ struct HomePageView: View {
     @FetchRequest(sortDescriptors: []) var exercises: FetchedResults<Exercise>
     @Environment(\.managedObjectContext) var managedObjectContext
     
+    @State private var workingRoutineToEditModally: WorkoutRoutine?
+    
     var body: some View {
         
         VStack {
@@ -57,8 +59,7 @@ struct HomePageView: View {
             
             
             Button("Add a new workout routine", action: {
-                let workoutRoutine = WorkoutRoutine(context: managedObjectContext)
-                workoutRoutine.title = "Push ups"
+                _ = WorkoutRoutine(context: managedObjectContext)
                 PersistenceController.shared.save()
             })
             .offset(x: -100, y: -20)
@@ -76,18 +77,18 @@ struct HomePageView: View {
                         ForEach(workoutRoutines) { workoutRoutine in
                             VStack{
                                 NavigationLink(destination: MyWorkOutPageView(workoutRoutine: workoutRoutine)) {
-                                    Text("Workout")
+                                    Text(workoutRoutine.title ?? "New Workout")
                                         .font(.title)
                                         .foregroundColor(.red)
                                 }
                                 Spacer()
                                 
                                 
-                                
-                                NavigationLink(destination: EditWorkoutRoutineView(exercises: Exercise, workoutRoutine: workoutRoutine)) {
-                                    Text("Edit")
-                                        .foregroundColor(.red)
+                                Button("Edit") {
+                                    workingRoutineToEditModally = workoutRoutine
                                 }
+                                
+                                
                             }
                             .padding(10)
                             .frame(width: 140, height: 240)
@@ -102,7 +103,9 @@ struct HomePageView: View {
             })
             .padding(.leading, 10)
             .padding(.trailing, 20)
-            
+            .sheet(item: $workingRoutineToEditModally, content: { workoutRoutine in
+                EditWorkoutRoutineView(workoutRoutine: workoutRoutine)
+            })
         
             Spacer()
             Spacer()

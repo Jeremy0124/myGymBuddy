@@ -22,6 +22,7 @@
 		DEE569DF28C3F16F00EA0244 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE569DE28C3F16F00EA0244 /* CoreDataManager.swift */; };
 		DEF5D27728B3C22900654C11 /* EditExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF5D27628B3C22900654C11 /* EditExerciseView.swift */; };
 		DEF5D27928B51E7900654C11 /* MyWorkOutPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF5D27828B51E7900654C11 /* MyWorkOutPageView.swift */; };
+		DEFD1C5728CF868E00121116 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFD1C5628CF868E00121116 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		DEE569DE28C3F16F00EA0244 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		DEF5D27628B3C22900654C11 /* EditExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditExerciseView.swift; sourceTree = "<group>"; };
 		DEF5D27828B51E7900654C11 /* MyWorkOutPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyWorkOutPageView.swift; sourceTree = "<group>"; };
+		DEFD1C5628CF868E00121116 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				DE9BEF3F28B7BEAA00D22AD6 /* WarmUpPageView.swift */,
+				DEFD1C5628CF868E00121116 /* Extensions.swift */,
 				DEF5D27628B3C22900654C11 /* EditExerciseView.swift */,
 				DE897A4228B1725900EFFCC6 /* HomePageView.swift */,
 				DE03D95E286CAA2C00E12E0F /* ContentView.swift */,
@@ -203,6 +206,7 @@
 				DECB549028C8E719005A3B8C /* EditWorkoutRoutineView.swift in Sources */,
 				DEF5D27928B51E7900654C11 /* MyWorkOutPageView.swift in Sources */,
 				DE03D95D286CAA2C00E12E0F /* myGymBuddyApp.swift in Sources */,
+				DEFD1C5728CF868E00121116 /* Extensions.swift in Sources */,
 				DEF5D27728B3C22900654C11 /* EditExerciseView.swift in Sources */,
 				DEE569DF28C3F16F00EA0244 /* CoreDataManager.swift in Sources */,
 				DE9BEF6428BFB95F00D22AD6 /* CoreDataModel.xcdatamodeld in Sources */,
