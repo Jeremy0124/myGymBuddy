@@ -14,8 +14,8 @@ struct MyWorkOutPageView: View {
     var workoutRoutine: WorkoutRoutine
     
     var body: some View {
-        
-        NavigationView {
+            Text("MyWorkOutPageView")
+       
             VStack {
                 ZStack {
                     List {
@@ -25,11 +25,10 @@ struct MyWorkOutPageView: View {
                         }
                             
                         }
-                        .onDelete(perform: deleteItems)
                     }
                 }
             }
-        }
+        
     }
     
     func savedContext(_ context: NSManagedObjectContext) {
@@ -41,11 +40,7 @@ struct MyWorkOutPageView: View {
         }
     }
     
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            //  offsets.map { Exercise[$0] }.forEach(viewContext.delete)
-        }
-    }
+    
     
 }
 

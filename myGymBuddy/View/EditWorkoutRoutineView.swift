@@ -32,9 +32,10 @@ struct EditWorkoutRoutineView: View {
     
     
     var body: some View {
-        NavigationView {
+        
             Form {
                 Section(header: Text("Name of my Workout")){
+                    Text("EditWorkoutRoutine")
                     TextField("Workout Name", text: $workoutRoutine.title ?? "")
                 }
                 
@@ -47,25 +48,25 @@ struct EditWorkoutRoutineView: View {
                 
                 Section() {
                     // NO Need for a Save Button
-                    Button("+", action: addExercise)
+                    Button("Add Exercise", action: addExercise)
                         .font(.headline)
                         .frame(maxWidth: .infinity, alignment: .center)
                 }
             }
-            .toolbar {
+            
                 Button("Save") {
                     saveCoreDataContext()
                     // TODO: dismiss the modal
                     
                 }
-            }
+            
             .onDisappear {
                 viewContext.rollback()
             }
             .onAppear {
                 saveCoreDataContext()
             }
-        }
+        
         
     }
     

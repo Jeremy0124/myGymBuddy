@@ -8,9 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		DE03D95D286CAA2C00E12E0F /* myGymBuddyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE03D95C286CAA2C00E12E0F /* myGymBuddyApp.swift */; };
-		DE03D95F286CAA2C00E12E0F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE03D95E286CAA2C00E12E0F /* ContentView.swift */; };
+		DE03D95F286CAA2C00E12E0F /* FirstLaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE03D95E286CAA2C00E12E0F /* FirstLaunchView.swift */; };
 		DE03D961286CAA2D00E12E0F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE03D960286CAA2D00E12E0F /* Assets.xcassets */; };
 		DE03D964286CAA2D00E12E0F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE03D963286CAA2D00E12E0F /* Preview Assets.xcassets */; };
+		DE814C0928D2344000120ECC /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE814C0828D2344000120ECC /* CoreDataHelper.swift */; };
 		DE897A4328B1725900EFFCC6 /* HomePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE897A4228B1725900EFFCC6 /* HomePageView.swift */; };
 		DE9BEF4028B7BEAA00D22AD6 /* WarmUpPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9BEF3F28B7BEAA00D22AD6 /* WarmUpPageView.swift */; };
 		DE9BEF6128BFB8EF00D22AD6 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9BEF6028BFB8EF00D22AD6 /* Persistence.swift */; };
@@ -26,11 +27,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		DE03D959286CAA2C00E12E0F /* +.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "+.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE03D959286CAA2C00E12E0F /* MyGymBuddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyGymBuddy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE03D95C286CAA2C00E12E0F /* myGymBuddyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myGymBuddyApp.swift; sourceTree = "<group>"; };
-		DE03D95E286CAA2C00E12E0F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		DE03D95E286CAA2C00E12E0F /* FirstLaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstLaunchView.swift; sourceTree = "<group>"; };
 		DE03D960286CAA2D00E12E0F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DE03D963286CAA2D00E12E0F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		DE814C0828D2344000120ECC /* CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
 		DE897A4228B1725900EFFCC6 /* HomePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageView.swift; sourceTree = "<group>"; };
 		DE9BEF3F28B7BEAA00D22AD6 /* WarmUpPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarmUpPageView.swift; sourceTree = "<group>"; };
 		DE9BEF6028BFB8EF00D22AD6 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -69,7 +71,7 @@
 		DE03D95A286CAA2C00E12E0F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DE03D959286CAA2C00E12E0F /* +.app */,
+				DE03D959286CAA2C00E12E0F /* MyGymBuddy.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -79,7 +81,9 @@
 			children = (
 				DEE569DD28C3F12200EA0244 /* CoreDataManager */,
 				DE03D95C286CAA2C00E12E0F /* myGymBuddyApp.swift */,
+				DE814C0828D2344000120ECC /* CoreDataHelper.swift */,
 				DECB548D28C8DE91005A3B8C /* CoreDataExtension.swift */,
+				DEFD1C5628CF868E00121116 /* Extensions.swift */,
 				DECB548A28C78AB7005A3B8C /* View */,
 				DE9BEF6228BFB95F00D22AD6 /* CoreDataModel.xcdatamodeld */,
 				DE9BEF6028BFB8EF00D22AD6 /* Persistence.swift */,
@@ -109,10 +113,9 @@
 			isa = PBXGroup;
 			children = (
 				DE9BEF3F28B7BEAA00D22AD6 /* WarmUpPageView.swift */,
-				DEFD1C5628CF868E00121116 /* Extensions.swift */,
 				DEF5D27628B3C22900654C11 /* EditExerciseView.swift */,
 				DE897A4228B1725900EFFCC6 /* HomePageView.swift */,
-				DE03D95E286CAA2C00E12E0F /* ContentView.swift */,
+				DE03D95E286CAA2C00E12E0F /* FirstLaunchView.swift */,
 				DECB548B28C79A28005A3B8C /* ExerciseCell.swift */,
 				DEF5D27828B51E7900654C11 /* MyWorkOutPageView.swift */,
 				DECB548F28C8E719005A3B8C /* EditWorkoutRoutineView.swift */,
@@ -131,9 +134,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		DE03D958286CAA2C00E12E0F /* + */ = {
+		DE03D958286CAA2C00E12E0F /* MyGymBuddy */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DE03D967286CAA2D00E12E0F /* Build configuration list for PBXNativeTarget "+" */;
+			buildConfigurationList = DE03D967286CAA2D00E12E0F /* Build configuration list for PBXNativeTarget "MyGymBuddy" */;
 			buildPhases = (
 				DE03D955286CAA2C00E12E0F /* Sources */,
 				DE03D956286CAA2C00E12E0F /* Frameworks */,
@@ -143,9 +146,9 @@
 			);
 			dependencies = (
 			);
-			name = "+";
+			name = MyGymBuddy;
 			productName = myGymBuddy;
-			productReference = DE03D959286CAA2C00E12E0F /* +.app */;
+			productReference = DE03D959286CAA2C00E12E0F /* MyGymBuddy.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -176,7 +179,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				DE03D958286CAA2C00E12E0F /* + */,
+				DE03D958286CAA2C00E12E0F /* MyGymBuddy */,
 			);
 		};
 /* End PBXProject section */
@@ -199,7 +202,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE9BEF6128BFB8EF00D22AD6 /* Persistence.swift in Sources */,
-				DE03D95F286CAA2C00E12E0F /* ContentView.swift in Sources */,
+				DE03D95F286CAA2C00E12E0F /* FirstLaunchView.swift in Sources */,
 				DECB548E28C8DE91005A3B8C /* CoreDataExtension.swift in Sources */,
 				DE897A4328B1725900EFFCC6 /* HomePageView.swift in Sources */,
 				DECB548C28C79A28005A3B8C /* ExerciseCell.swift in Sources */,
@@ -208,6 +211,7 @@
 				DE03D95D286CAA2C00E12E0F /* myGymBuddyApp.swift in Sources */,
 				DEFD1C5728CF868E00121116 /* Extensions.swift in Sources */,
 				DEF5D27728B3C22900654C11 /* EditExerciseView.swift in Sources */,
+				DE814C0928D2344000120ECC /* CoreDataHelper.swift in Sources */,
 				DEE569DF28C3F16F00EA0244 /* CoreDataManager.swift in Sources */,
 				DE9BEF6428BFB95F00D22AD6 /* CoreDataModel.xcdatamodeld in Sources */,
 				DE9BEF4028B7BEAA00D22AD6 /* WarmUpPageView.swift in Sources */,
@@ -355,7 +359,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.signup.myGymBuddy;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = MyGymBuddy;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -387,7 +391,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.signup.myGymBuddy;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = MyGymBuddy;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -407,7 +411,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DE03D967286CAA2D00E12E0F /* Build configuration list for PBXNativeTarget "+" */ = {
+		DE03D967286CAA2D00E12E0F /* Build configuration list for PBXNativeTarget "MyGymBuddy" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DE03D968286CAA2D00E12E0F /* Debug */,

@@ -59,7 +59,7 @@ struct HomePageView: View {
             
             
             Button("Add a new workout routine", action: {
-                _ = WorkoutRoutine(context: managedObjectContext)
+            _ = WorkoutRoutine(context: managedObjectContext)
                 PersistenceController.shared.save()
             })
             .offset(x: -100, y: -20)
@@ -89,10 +89,11 @@ struct HomePageView: View {
                                 }
                                 
                                 
+                                
                             }
                             .padding(10)
                             .frame(width: 140, height: 240)
-                            .background(Color(.green))
+                            .background(Color(.gray))
                             .clipped()
                             .cornerRadius(30)
                             .shadow(radius: 8)
@@ -106,13 +107,15 @@ struct HomePageView: View {
             .sheet(item: $workingRoutineToEditModally, content: { workoutRoutine in
                 EditWorkoutRoutineView(workoutRoutine: workoutRoutine)
             })
-        
+            
             Spacer()
             Spacer()
             Spacer()
         }
     }
 }
+
+
 
 
 

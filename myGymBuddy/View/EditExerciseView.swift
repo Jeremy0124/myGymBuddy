@@ -31,19 +31,33 @@ struct EditExerciseView: View {
         }
     }
     var body: some View {
+        Text("EditExerciseView")
         Form {
             Section(header: Text("Add to my Exercise")){
                 TextField("Exercise Name", text: $exerciseTitle)
                 TextField("Exercise Description", text: $exerciseDesc)
             }
             
+            
             Section() {
                 Button("Save", action: saveAction)
                     .font(.headline)
                     .frame(maxWidth: .infinity, alignment: .center)
+                
+                if let exercise = exercise {
+                    Button {
+                        delete(exercise: exercise)
+                    } label: {
+                        Text("Delete")
+                    }
+                    .font(.headline)
+                    .frame(maxWidth: .infinity, alignment: .center)
+
+                }
             }
         }
     }
+    
     func saveAction() {
         withAnimation {
             if exercise == nil {
@@ -54,15 +68,16 @@ struct EditExerciseView: View {
             
         }
     }
+    
+    func delete(exercise: Exercise) {
+        CoreDataHelper.shared.deleteExercise(exercise: exercise)
+        presentationMode.wrappedValue.dismiss()
+    }
 }
 
-//func delete(at offsets: IndexSet) {
-//        WorkoutRoutine.remove(atOffsets: offsets)
-//    }
-//}
 
 struct EditPageView_Previews: PreviewProvider {
     static var previews: some View {
-        EditExerciseView(exercise: Exercise())
+        EditExerciseView(exercise: Exercise.example)
     }
 }

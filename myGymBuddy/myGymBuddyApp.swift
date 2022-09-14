@@ -12,7 +12,7 @@ struct myGymBuddyApp: App {
     let persistenceController = PersistenceController.shared
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            FirstLaunchView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
