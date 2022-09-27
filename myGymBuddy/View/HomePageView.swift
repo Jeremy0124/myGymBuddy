@@ -8,40 +8,38 @@
 import SwiftUI
 
 struct HomePageView: View {
+    
     @State private var isShowingEditPageView: Bool = false
     @State private var day = 1
     @FetchRequest(sortDescriptors: []) var workoutRoutines: FetchedResults<WorkoutRoutine>
-    @FetchRequest(sortDescriptors: []) var exercises: FetchedResults<Exercise>
+   // @FetchRequest(sortDescriptors: []) var exercises: FetchedResults<Exercise>
     @Environment(\.managedObjectContext) var managedObjectContext
-    
     @State private var workingRoutineToEditModally: WorkoutRoutine?
     
     var body: some View {
-        
         VStack {
             ZStack {
-                Button {
-                    //We want to create a segue to a warm up page
-                    
-                } label: {
-                    Image("warm-ups")
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(height: 300)
-                }
                 VStack {
-                    
                     Spacer()
-                    
                     NavigationLink(destination: WarmUpPageView()) {
-                        Text("Warm ups")
-                            .font(.largeTitle)
-                            .fontWeight(.semibold)
-                            .foregroundColor(.white)
+                        Image("warm-ups")
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(height: 300)
                     }
                 }
-                .padding()
-                .frame(width: 300)
+                if #available(iOS 16.0, *) {
+                    Text("Warm ups")
+                        .padding(.top, 250)
+                        .font(.largeTitle)
+                        .fontWeight(.semibold)
+                        .foregroundColor(.white)
+                    
+                        .padding()
+                        .frame(width: 300)
+                } else {
+                    // Fallback on earlier versions
+                }
             }
             .frame(width: 350, height: 300)
             .cornerRadius(20)
@@ -56,49 +54,50 @@ struct HomePageView: View {
                 .padding()
                 .offset(x: -35, y: 0)
             
-            
-            
             Button("Add a new workout routine", action: {
             _ = WorkoutRoutine(context: managedObjectContext)
                 PersistenceController.shared.save()
             })
-            .offset(x: -100, y: -20)
-            
-            
-            
-            Spacer()
-            
+            .offset(x: -95, y: -20)
             
             ScrollView(.horizontal, showsIndicators: true, content: {
-                
                 ZStack {
                     HStack {
-                        
                         ForEach(workoutRoutines) { workoutRoutine in
                             VStack{
                                 NavigationLink(destination: MyWorkOutPageView(workoutRoutine: workoutRoutine)) {
-                                    Text(workoutRoutine.title ?? "New Workout")
-                                        .font(.title)
-                                        .foregroundColor(.red)
+                                    VStack {
+                                        Text(workoutRoutine.title ?? "New Workout")
+                                            .font(.title)
+                                            .foregroundColor(.white)
+                                        Spacer()
+                                        Button("Edit") {
+                                            workingRoutineToEditModally = workoutRoutine
+                                        }
+                                    }
                                 }
-                                Spacer()
-                                
-                                
-                                Button("Edit") {
-                                    workingRoutineToEditModally = workoutRoutine
-                                }
-                                
-                                
-                                
                             }
+                            .background(
+                                Image("fit")
+                                    .resizable()
+                                    .frame(width: 140, height: 240)
+                            )
                             .padding(10)
                             .frame(width: 140, height: 240)
-                            .background(Color(.gray))
                             .clipped()
                             .cornerRadius(30)
                             .shadow(radius: 8)
+                            .contextMenu {
+                                Button(action: {
+                                    CoreDataHelper.shared.deleteWorkOutRoutine(workoutRoutine: workoutRoutine)
+                                }, label: {
+                                    HStack {
+                                        Text("Delete")
+                                        Image(systemName: "trash")
+                                    }
+                                })
+                            }
                         }
-                        // .onDelete(perform: delete)
                     }
                 }
             })
@@ -107,17 +106,12 @@ struct HomePageView: View {
             .sheet(item: $workingRoutineToEditModally, content: { workoutRoutine in
                 EditWorkoutRoutineView(workoutRoutine: workoutRoutine)
             })
-            
             Spacer()
             Spacer()
             Spacer()
         }
     }
 }
-
-
-
-
 
 struct HomePageView_Previews: PreviewProvider {
     static var previews: some View {

@@ -11,24 +11,12 @@ struct EditExerciseView: View {
     @Environment(\.presentationMode)
     var presentationMode: Binding<PresentationMode>
     @Environment(\.managedObjectContext) private var viewContext
+    @ObservedObject var exercise: Exercise
+    @State var exerciseTitle: String = ""
+    @State var exerciseDesc: String = ""
     
-    @State var exercise: Exercise?
-    @State var exerciseTitle: String
-    @State var exerciseDesc: String
-    
-    
-    init(exercise: Exercise?) {
-        if let exercise = exercise {
-            _exercise = State(initialValue: exercise)
-            
-            _exerciseTitle = State(initialValue: exercise.title ?? "")
-            _exerciseDesc = State(initialValue: exercise.desc ?? "")
-            
-        } else {
-            //Default value
-            _exerciseTitle = State(initialValue: "")
-            _exerciseDesc = State(initialValue: "")
-        }
+    init(exercise: Exercise) {
+        self.exercise = exercise
     }
     var body: some View {
         Text("EditExerciseView")
@@ -37,8 +25,10 @@ struct EditExerciseView: View {
                 TextField("Exercise Name", text: $exerciseTitle)
                 TextField("Exercise Description", text: $exerciseDesc)
             }
-            
-            
+            .onAppear {
+                exerciseTitle = exercise.title ?? ""
+                exerciseDesc = exercise.desc ?? ""
+            }
             Section() {
                 Button("Save", action: saveAction)
                     .font(.headline)
@@ -60,12 +50,8 @@ struct EditExerciseView: View {
     
     func saveAction() {
         withAnimation {
-            if exercise == nil {
-                exercise = Exercise(context: viewContext)
-            }
-            exercise?.title = exerciseTitle
-            exercise?.desc = exerciseDesc
-            
+            exercise.title = exerciseTitle
+            exercise.desc = exerciseDesc
         }
     }
     
@@ -74,7 +60,6 @@ struct EditExerciseView: View {
         presentationMode.wrappedValue.dismiss()
     }
 }
-
 
 struct EditPageView_Previews: PreviewProvider {
     static var previews: some View {

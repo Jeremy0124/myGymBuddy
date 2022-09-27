@@ -10,7 +10,6 @@ import SwiftUI
 struct FirstLaunchView: View {
     var body: some View {
         NavigationView {
-            
             ZStack {
                 Image("Bimg")
                     .resizable()
@@ -26,7 +25,6 @@ struct FirstLaunchView: View {
                             .cornerRadius(40)
                             .font(.title)
                             .scaledToFill()
-                        
                     }
                 }
                 
@@ -34,6 +32,7 @@ struct FirstLaunchView: View {
             .edgesIgnoringSafeArea(.all)
         }
     }
+    
     struct ContentView_Previews: PreviewProvider {
         static var previews: some View {
             FirstLaunchView()

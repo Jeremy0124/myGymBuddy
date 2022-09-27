@@ -12,7 +12,7 @@ struct EditWorkoutRoutineView: View {
     var presentationMode: Binding<PresentationMode>
     @Environment(\.managedObjectContext) private var viewContext
     @ObservedObject var workoutRoutine: WorkoutRoutine
-    @Binding var exercises: [Exercise]
+   // @State var exercises: [Exercise]
     
     let formatter: NumberFormatter = {
         let formatter = NumberFormatter()
@@ -22,14 +22,12 @@ struct EditWorkoutRoutineView: View {
     
     init(workoutRoutine: WorkoutRoutine) {
         self.workoutRoutine =  workoutRoutine
-        _exercises = Binding<[Exercise]>(get: {
-            workoutRoutine.exercises!.allObjects as! [Exercise]
-        }, set: { newExercises in
-            workoutRoutine.exercises = NSSet(array: newExercises)
-        })
+//        _exercises = Binding<[Exercise]>(get: {
+//            workoutRoutine.exercises!.allObjects as! [Exercise]
+//        }, set: { newExercises in
+//            workoutRoutine.exercises = NSSet(array: newExercises)
+//        })
     }
-    
-    
     
     var body: some View {
         
@@ -38,14 +36,11 @@ struct EditWorkoutRoutineView: View {
                     Text("EditWorkoutRoutine")
                     TextField("Workout Name", text: $workoutRoutine.title ?? "")
                 }
-                
                 Section(header: Text("Exercises")){
-                    ForEach(exercises) { exercise in
+                    ForEach(workoutRoutine.exercisesArray) { exercise in
                         ExerciseCell(exercise: exercise)
                     }
-                    
                 }
-                
                 Section() {
                     // NO Need for a Save Button
                     Button("Add Exercise", action: addExercise)
@@ -53,21 +48,16 @@ struct EditWorkoutRoutineView: View {
                         .frame(maxWidth: .infinity, alignment: .center)
                 }
             }
-            
                 Button("Save") {
                     saveCoreDataContext()
                     // TODO: dismiss the modal
-                    
                 }
-            
             .onDisappear {
                 viewContext.rollback()
             }
             .onAppear {
                 saveCoreDataContext()
             }
-        
-        
     }
     
     func addExercise() {
@@ -78,7 +68,9 @@ struct EditWorkoutRoutineView: View {
             exercise.reps = 0
             exercise.sets = 0
             exercise.timer = 0
-            exercises.append(exercise)
+            exercise.id = UUID()
+            workoutRoutine.addToExercises(exercise)
+            PersistenceController.shared.save()
         }
     }
     

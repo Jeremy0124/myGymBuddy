@@ -17,11 +17,8 @@ struct WarmUpPageView: View {
                 Text("Stretch Arm")
                 Text("Stretch Legs")
             }
-
         }
         .navigationTitle("Warm up Page")
-    
-    
     }
 }
 

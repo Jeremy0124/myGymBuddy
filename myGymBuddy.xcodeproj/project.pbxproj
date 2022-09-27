@@ -85,8 +85,8 @@
 				DECB548D28C8DE91005A3B8C /* CoreDataExtension.swift */,
 				DEFD1C5628CF868E00121116 /* Extensions.swift */,
 				DECB548A28C78AB7005A3B8C /* View */,
-				DE9BEF6228BFB95F00D22AD6 /* CoreDataModel.xcdatamodeld */,
 				DE9BEF6028BFB8EF00D22AD6 /* Persistence.swift */,
+				DE9BEF6228BFB95F00D22AD6 /* CoreDataModel.xcdatamodeld */,
 				DE03D960286CAA2D00E12E0F /* Assets.xcassets */,
 				DE03D962286CAA2D00E12E0F /* Preview Content */,
 			);
@@ -112,10 +112,10 @@
 		DECB548A28C78AB7005A3B8C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				DE03D95E286CAA2C00E12E0F /* FirstLaunchView.swift */,
+				DE897A4228B1725900EFFCC6 /* HomePageView.swift */,
 				DE9BEF3F28B7BEAA00D22AD6 /* WarmUpPageView.swift */,
 				DEF5D27628B3C22900654C11 /* EditExerciseView.swift */,
-				DE897A4228B1725900EFFCC6 /* HomePageView.swift */,
-				DE03D95E286CAA2C00E12E0F /* FirstLaunchView.swift */,
 				DECB548B28C79A28005A3B8C /* ExerciseCell.swift */,
 				DEF5D27828B51E7900654C11 /* MyWorkOutPageView.swift */,
 				DECB548F28C8E719005A3B8C /* EditWorkoutRoutineView.swift */,

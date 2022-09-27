@@ -10,25 +10,21 @@ import CoreData
 
 struct MyWorkOutPageView: View {
     @Environment(\.managedObjectContext) private var viewContext
-    
     var workoutRoutine: WorkoutRoutine
     
     var body: some View {
             Text("MyWorkOutPageView")
-       
             VStack {
                 ZStack {
                     List {
                         ForEach(workoutRoutine.exercisesArray) {exercise in NavigationLink(destination: EditExerciseView(exercise: exercise)) {
                             ExerciseCell(exercise: exercise)
-                            
+
                         }
-                            
                         }
                     }
                 }
             }
-        
     }
     
     func savedContext(_ context: NSManagedObjectContext) {
@@ -39,9 +35,6 @@ struct MyWorkOutPageView: View {
             fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
         }
     }
-    
-    
-    
 }
 
 struct MyWorkOutPageView_Previews: PreviewProvider {
