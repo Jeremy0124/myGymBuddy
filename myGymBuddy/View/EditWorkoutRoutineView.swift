@@ -49,6 +49,8 @@ struct EditWorkoutRoutineView: View {
                         .frame(maxWidth: .infinity, alignment: .center)
                 }
             }
+            .background(Color.white)
+        
                 Button("Save") {
                     saveCoreDataContext()
                     // TODO: dismiss the modal

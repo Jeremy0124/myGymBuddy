@@ -15,10 +15,13 @@ struct ExerciseCell: View {
     var body: some View {
         VStack {
             TextField("Exercise Name", text: $exercise.title ?? "")
+                .foregroundColor(.black)
             TextField("Exercise Description", text: $exercise.desc ?? "")
+                .foregroundColor(.black)
             
             HStack{
                 Text("\(exercise.reps) Reps for each Set")
+                    .foregroundColor(.black)
                 Spacer()
                 if isEditing {
                     HStack {
@@ -68,6 +71,7 @@ struct ExerciseCell: View {
             //                TextField("Timer", value: $exercise.timer ,format: .number)
             //                    .textFieldStyle(.roundedBorder)
         }
+        .background(Color.white)
     }
 }
 

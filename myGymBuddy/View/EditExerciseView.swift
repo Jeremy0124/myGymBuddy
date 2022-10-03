@@ -47,6 +47,7 @@ struct EditExerciseView: View {
                 }
             }
         }
+        .background(Color.white)
     }
     
     func saveAction() {

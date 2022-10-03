@@ -25,6 +25,7 @@ struct MyWorkOutPageView: View {
                     }
                 }
             }
+            .background(Color.white)
     }
     
     func savedContext(_ context: NSManagedObjectContext) {
