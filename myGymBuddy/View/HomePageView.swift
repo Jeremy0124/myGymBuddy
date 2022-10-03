@@ -16,6 +16,10 @@ struct HomePageView: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     @State private var workingRoutineToEditModally: WorkoutRoutine?
     
+    init() {
+        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.init(Color(.black))]
+    }
+    
     var body: some View {
         VStack {
             ZStack {
@@ -49,6 +53,7 @@ struct HomePageView: View {
             .navigationBarTitle("Home Page")
             
             Text("Weekly Workout Plan")
+                .foregroundColor(Color.black)
                 .font(.largeTitle)
                 .fontWeight(.semibold)
                 .padding()
@@ -110,6 +115,7 @@ struct HomePageView: View {
             Spacer()
             Spacer()
         }
+        .background(Color.white)
     }
 }
 

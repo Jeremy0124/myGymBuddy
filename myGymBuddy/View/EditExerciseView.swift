@@ -15,6 +15,7 @@ struct EditExerciseView: View {
     @State var exerciseTitle: String = ""
     @State var exerciseDesc: String = ""
     
+        
     init(exercise: Exercise) {
         self.exercise = exercise
     }

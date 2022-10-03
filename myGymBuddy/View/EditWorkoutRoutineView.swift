@@ -38,7 +38,8 @@ struct EditWorkoutRoutineView: View {
                 }
                 Section(header: Text("Exercises")){
                     ForEach(workoutRoutine.exercisesArray) { exercise in
-                        ExerciseCell(exercise: exercise)
+                        ExerciseCell(exercise: exercise,isEditing: true)
+                        
                     }
                 }
                 Section() {
