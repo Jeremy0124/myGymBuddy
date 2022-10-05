@@ -15,7 +15,6 @@ struct EditExerciseView: View {
     @State var exerciseTitle: String = ""
     @State var exerciseDesc: String = ""
     
-        
     init(exercise: Exercise) {
         self.exercise = exercise
     }
@@ -31,29 +30,38 @@ struct EditExerciseView: View {
                 exerciseDesc = exercise.desc ?? ""
             }
             Section() {
+                Button("Exercise Complete", action: exerciseComplete)
+                    .font(.headline)
+                    .frame(maxWidth: .infinity, alignment: .center)
+                    .foregroundColor(.green)
                 Button("Save", action: saveAction)
                     .font(.headline)
                     .frame(maxWidth: .infinity, alignment: .center)
-                
+                    .foregroundColor(.blue)
                 if let exercise = exercise {
                     Button {
                         delete(exercise: exercise)
                     } label: {
                         Text("Delete")
+                            .foregroundColor(.red)
                     }
                     .font(.headline)
                     .frame(maxWidth: .infinity, alignment: .center)
-
                 }
             }
         }
-        .background(Color.white)
+    }
+    
+    func exerciseComplete() {
+        exercise.isComplete.toggle()
+        presentationMode.wrappedValue.dismiss()
     }
     
     func saveAction() {
         withAnimation {
             exercise.title = exerciseTitle
             exercise.desc = exerciseDesc
+            presentationMode.wrappedValue.dismiss()
         }
     }
     

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DE00ACC728EDD198002DA944 /* ButtonStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE00ACC628EDD197002DA944 /* ButtonStyles.swift */; };
 		DE03D95D286CAA2C00E12E0F /* myGymBuddyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE03D95C286CAA2C00E12E0F /* myGymBuddyApp.swift */; };
 		DE03D95F286CAA2C00E12E0F /* FirstLaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE03D95E286CAA2C00E12E0F /* FirstLaunchView.swift */; };
 		DE03D961286CAA2D00E12E0F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE03D960286CAA2D00E12E0F /* Assets.xcassets */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DE00ACC628EDD197002DA944 /* ButtonStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyles.swift; sourceTree = "<group>"; };
 		DE03D959286CAA2C00E12E0F /* MyGymBuddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyGymBuddy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE03D95C286CAA2C00E12E0F /* myGymBuddyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myGymBuddyApp.swift; sourceTree = "<group>"; };
 		DE03D95E286CAA2C00E12E0F /* FirstLaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstLaunchView.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 				DECB548B28C79A28005A3B8C /* ExerciseCell.swift */,
 				DEF5D27828B51E7900654C11 /* MyWorkOutPageView.swift */,
 				DECB548F28C8E719005A3B8C /* EditWorkoutRoutineView.swift */,
+				DE00ACC628EDD197002DA944 /* ButtonStyles.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -214,6 +217,7 @@
 				DE814C0928D2344000120ECC /* CoreDataHelper.swift in Sources */,
 				DEE569DF28C3F16F00EA0244 /* CoreDataManager.swift in Sources */,
 				DE9BEF6428BFB95F00D22AD6 /* CoreDataModel.xcdatamodeld in Sources */,
+				DE00ACC728EDD198002DA944 /* ButtonStyles.swift in Sources */,
 				DE9BEF4028B7BEAA00D22AD6 /* WarmUpPageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

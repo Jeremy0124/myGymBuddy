@@ -12,7 +12,7 @@ struct EditWorkoutRoutineView: View {
     var presentationMode: Binding<PresentationMode>
     @Environment(\.managedObjectContext) private var viewContext
     @ObservedObject var workoutRoutine: WorkoutRoutine
-   // @State var exercises: [Exercise]
+    // @State var exercises: [Exercise]
     
     let formatter: NumberFormatter = {
         let formatter = NumberFormatter()
@@ -22,45 +22,47 @@ struct EditWorkoutRoutineView: View {
     
     init(workoutRoutine: WorkoutRoutine) {
         self.workoutRoutine =  workoutRoutine
-//        _exercises = Binding<[Exercise]>(get: {
-//            workoutRoutine.exercises!.allObjects as! [Exercise]
-//        }, set: { newExercises in
-//            workoutRoutine.exercises = NSSet(array: newExercises)
-//        })
     }
     
     var body: some View {
-        
-            Form {
+        Text("EditWorkoutRoutineView")
+        NavigationView {
+            List {
                 Section(header: Text("Name of my Workout")){
-                    Text("EditWorkoutRoutine")
                     TextField("Workout Name", text: $workoutRoutine.title ?? "")
                 }
                 Section(header: Text("Exercises")){
                     ForEach(workoutRoutine.exercisesArray) { exercise in
-                        ExerciseCell(exercise: exercise,isEditing: true)
-                        
+                        ExerciseCell(exercise: exercise, isEditing: true)
                     }
+                    .onMove(perform: move)
                 }
                 Section() {
                     // NO Need for a Save Button
                     Button("Add Exercise", action: addExercise)
                         .font(.headline)
                         .frame(maxWidth: .infinity, alignment: .center)
+                    
+                    HStack {
+                        Button("Save my Workout") {
+                            saveCoreDataContext()
+                            presentationMode.wrappedValue.dismiss()
+                        }
+                        .buttonStyle(SaveButton())
+                        .offset(x: 90)
+                    }
                 }
             }
-            .background(Color.white)
-        
-                Button("Save") {
-                    saveCoreDataContext()
-                    // TODO: dismiss the modal
-                }
+            .toolbar {
+                EditButton()
+            }
             .onDisappear {
                 viewContext.rollback()
             }
             .onAppear {
                 saveCoreDataContext()
             }
+        }
     }
     
     func addExercise() {
@@ -68,18 +70,30 @@ struct EditWorkoutRoutineView: View {
             let exercise = Exercise(context: viewContext)
             exercise.title = ""
             exercise.desc = ""
-            exercise.reps = 0
-            exercise.sets = 0
+            exercise.reps = 10
+            exercise.sets = 3
             exercise.timer = 0
+            exercise.weight = 50
             exercise.id = UUID()
+            exercise.sortIndex = Int64(workoutRoutine.exercisesArray.count)
             workoutRoutine.addToExercises(exercise)
             PersistenceController.shared.save()
         }
     }
     
+    func move(from source: IndexSet, to destination: Int) {
+        var resortedExercises = workoutRoutine.exercisesArray
+        resortedExercises.move(fromOffsets: source, toOffset: destination)
+        print(source.first)
+        print(destination)
+        for exercise in resortedExercises {
+            exercise.sortIndex = Int64(resortedExercises.firstIndex(of: exercise) ?? 0)
+        }
+    }
+    
     func saveCoreDataContext() {
         do {
-           try viewContext.save()
+            try viewContext.save()
         }
         catch {
             print(error)

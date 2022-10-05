@@ -10,23 +10,47 @@ import CoreData
 
 struct MyWorkOutPageView: View {
     @Environment(\.managedObjectContext) private var viewContext
+    
     var workoutRoutine: WorkoutRoutine
     
+    struct CompleteButton: ButtonStyle {
+        func makeBody(configuration: Configuration) -> some View {
+            configuration.label
+                .padding(20)
+                .background(Color(.green))
+                .foregroundColor(Color(.white))
+                .clipShape(Capsule())
+                .scaleEffect(configuration.isPressed ? 1.5 : 1)
+                .animation(.easeInOut(duration: 0.2), value: configuration.isPressed)
+        }
+    }
+    
     var body: some View {
-            Text("MyWorkOutPageView")
-            VStack {
-                ZStack {
-                    List {
-                        ForEach(workoutRoutine.exercisesArray) {exercise in NavigationLink(destination: EditExerciseView(exercise: exercise)) {
-                            ExerciseCell(exercise: exercise)
-
-                        }
-                        }
+        Text("MyWorkOutPageView")
+        Text(workoutRoutine.title ?? "My Workout")
+            .font(.title)
+        
+        VStack {
+            ZStack {
+                List {
+                    ForEach(workoutRoutine.exercisesArray) {exercise in NavigationLink(destination: EditExerciseView(exercise: exercise)) {
+                        
+                        ExerciseCell(exercise: exercise)
+                    }
                     }
                 }
             }
-            .background(Color.white)
+        }
+//        VStack {
+//                Button("Workout Complete!", action: workoutComplete)
+//                .buttonStyle(CompleteButton())
+//        }
     }
+    
+//    func workoutComplete() {
+//        exercise.isComplete = false
+//        print("workoutComplete button works")
+//    }
     
     func savedContext(_ context: NSManagedObjectContext) {
         do {

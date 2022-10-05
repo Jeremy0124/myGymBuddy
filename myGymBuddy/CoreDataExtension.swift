@@ -10,7 +10,8 @@ import CoreData
 
 extension WorkoutRoutine {
     var exercisesArray: [Exercise] {
-        return exercises?.allObjects as? [Exercise] ?? []
+        let exercises = exercises?.allObjects as? [Exercise] ?? []
+        return exercises.sorted(by: {$0.sortIndex < $1.sortIndex})
     }
 }
 

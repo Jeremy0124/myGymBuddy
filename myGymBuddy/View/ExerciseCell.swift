@@ -11,17 +11,17 @@ struct ExerciseCell: View {
     @Environment(\.managedObjectContext) private var viewContext
     @ObservedObject var exercise: Exercise
     var isEditing: Bool = false
+    var isComplete: Bool = false
     
     var body: some View {
         VStack {
+            Text("ExerciseCell")
             TextField("Exercise Name", text: $exercise.title ?? "")
-                .foregroundColor(.black)
+            
             TextField("Exercise Description", text: $exercise.desc ?? "")
-                .foregroundColor(.black)
             
             HStack{
                 Text("\(exercise.reps) Reps for each Set")
-                    .foregroundColor(.black)
                 Spacer()
                 if isEditing {
                     HStack {
@@ -64,14 +64,37 @@ struct ExerciseCell: View {
                 }
             }
             
-            //                TextField("How many Reps?", value: $exercise.reps ,format: .number)
-            //                    .textFieldStyle(.roundedBorder)
-            //                TextField("How many Sets?", value: $exercise.sets ,format: .number)
-            //                    .textFieldStyle(.roundedBorder)
-            //                TextField("Timer", value: $exercise.timer ,format: .number)
-            //                    .textFieldStyle(.roundedBorder)
+            HStack{
+                Text("\(exercise.weight) lbs")
+                Spacer()
+                if isEditing {
+                    HStack {
+                        HStack {
+                            Button(action: {self.exercise.weight = exercise.weight - 5}) {
+                                Text("-")
+                            }
+                            .buttonStyle(BorderedButtonStyle())
+                            HStack {
+                                Button(action: {self.exercise.weight = exercise.weight + 5}) {
+                                    Text("+")
+                                }
+                                .buttonStyle(BorderedButtonStyle())
+                            }
+                            .padding(.trailing)
+                        }
+                    }
+                }
+            }
+            
+            if exercise.isComplete {
+                HStack {
+                    Image(systemName: "checkmark.circle.fill")
+                        .foregroundColor(.green)
+                        .font(.system(size: 20))
+                }
+            }
+            
         }
-        .background(Color.white)
     }
 }
 

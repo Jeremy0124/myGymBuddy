@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct FirstLaunchView: View {
+    @State private var animationAmount = 1.0
     var body: some View {
         NavigationView {
             ZStack {
@@ -15,18 +16,22 @@ struct FirstLaunchView: View {
                     .resizable()
                     .scaledToFill()
                     .clipped()
-                VStack (alignment: .center, spacing: 0) {
+                VStack {
                     NavigationLink(destination: HomePageView()) {
                         Text("Let's Get Started")
-                            .background(.white)
-                            .frame(minWidth: 0, maxWidth: 700)
-                            .padding(20)
-                            .foregroundColor(.black)
-                            .cornerRadius(40)
+                            .bold()
                             .font(.title)
+                            .frame(width: 280, height: 50, alignment: .center)
+                            .background(Color.pink)
+                            .foregroundColor(.white)
+                            .cornerRadius(20)
                             .scaledToFill()
                     }
+                    .onAppear{
+                        animationAmount = 2
+                    }
                 }
+                .offset(x: -30, y: 150)
                 
             }
             .edgesIgnoringSafeArea(.all)

@@ -12,13 +12,10 @@ struct HomePageView: View {
     @State private var isShowingEditPageView: Bool = false
     @State private var day = 1
     @FetchRequest(sortDescriptors: []) var workoutRoutines: FetchedResults<WorkoutRoutine>
-   // @FetchRequest(sortDescriptors: []) var exercises: FetchedResults<Exercise>
+    // @FetchRequest(sortDescriptors: []) var exercises: FetchedResults<Exercise>
     @Environment(\.managedObjectContext) var managedObjectContext
     @State private var workingRoutineToEditModally: WorkoutRoutine?
-    
-    init() {
-        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.init(Color(.black))]
-    }
+    @State private var isEditable = false
     
     var body: some View {
         VStack {
@@ -38,7 +35,6 @@ struct HomePageView: View {
                         .font(.largeTitle)
                         .fontWeight(.semibold)
                         .foregroundColor(.white)
-                    
                         .padding()
                         .frame(width: 300)
                 } else {
@@ -53,14 +49,13 @@ struct HomePageView: View {
             .navigationBarTitle("Home Page")
             
             Text("Weekly Workout Plan")
-                .foregroundColor(Color.black)
                 .font(.largeTitle)
                 .fontWeight(.semibold)
                 .padding()
                 .offset(x: -35, y: 0)
             
             Button("Add a new workout routine", action: {
-            _ = WorkoutRoutine(context: managedObjectContext)
+                _ = WorkoutRoutine(context: managedObjectContext)
                 PersistenceController.shared.save()
             })
             .offset(x: -95, y: -20)
@@ -92,6 +87,9 @@ struct HomePageView: View {
                             .clipped()
                             .cornerRadius(30)
                             .shadow(radius: 8)
+                            .onDrag {
+                                return NSItemProvider()
+                            }
                             .contextMenu {
                                 Button(action: {
                                     CoreDataHelper.shared.deleteWorkOutRoutine(workoutRoutine: workoutRoutine)
@@ -115,7 +113,6 @@ struct HomePageView: View {
             Spacer()
             Spacer()
         }
-        .background(Color.white)
     }
 }
 
