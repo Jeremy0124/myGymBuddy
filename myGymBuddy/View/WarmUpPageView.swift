@@ -12,10 +12,10 @@ struct WarmUpPageView: View {
         List {
             Section(header: Text("Warm Ups")) {
                 Text("Stretch")
-                Text("Stretch Back")
-                Text("Planks")
-                Text("Stretch Arm")
-                Text("Stretch Legs")
+                Text("Planks for 1 Min")
+                Text("Keep ❤️ above 150 for 1 Min while 🏃")
+                Text("Keep ❤️ between 110 - 125 for 4 Min while 🏃")
+                Text("Repeat 2 to 4 times before any Workout")
             }
         }
         .navigationTitle("Warm up Page")

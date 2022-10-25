@@ -12,7 +12,6 @@ struct HomePageView: View {
     @State private var isShowingEditPageView: Bool = false
     @State private var day = 1
     @FetchRequest(sortDescriptors: []) var workoutRoutines: FetchedResults<WorkoutRoutine>
-    // @FetchRequest(sortDescriptors: []) var exercises: FetchedResults<Exercise>
     @Environment(\.managedObjectContext) var managedObjectContext
     @State private var workingRoutineToEditModally: WorkoutRoutine?
     @State private var isEditable = false

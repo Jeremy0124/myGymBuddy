@@ -12,7 +12,6 @@ struct EditWorkoutRoutineView: View {
     var presentationMode: Binding<PresentationMode>
     @Environment(\.managedObjectContext) private var viewContext
     @ObservedObject var workoutRoutine: WorkoutRoutine
-    // @State var exercises: [Exercise]
     
     let formatter: NumberFormatter = {
         let formatter = NumberFormatter()
@@ -25,7 +24,7 @@ struct EditWorkoutRoutineView: View {
     }
     
     var body: some View {
-        Text("EditWorkoutRoutineView")
+        // Text("EditWorkoutRoutineView")
         NavigationView {
             List {
                 Section(header: Text("Name of my Workout")){
@@ -84,8 +83,6 @@ struct EditWorkoutRoutineView: View {
     func move(from source: IndexSet, to destination: Int) {
         var resortedExercises = workoutRoutine.exercisesArray
         resortedExercises.move(fromOffsets: source, toOffset: destination)
-        print(source.first)
-        print(destination)
         for exercise in resortedExercises {
             exercise.sortIndex = Int64(resortedExercises.firstIndex(of: exercise) ?? 0)
         }

@@ -15,11 +15,16 @@ struct ExerciseCell: View {
     
     var body: some View {
         VStack {
-            Text("ExerciseCell")
+            //Text("ExerciseCell")
             TextField("Exercise Name", text: $exercise.title ?? "")
             
-            TextField("Exercise Description", text: $exercise.desc ?? "")
-            
+            if #available(iOS 16.0, *) {
+                TextField("Exercise Description", text: $exercise.desc ?? "", axis: .vertical)
+                    .lineLimit(10)
+            } else {
+                // Fallback on earlier versions
+            }
+                            
             HStack{
                 Text("\(exercise.reps) Reps for each Set")
                 Spacer()

@@ -19,3 +19,15 @@ struct SaveButton: ButtonStyle {
             .animation(.easeInOut(duration: 0.2), value: configuration.isPressed)
     }
 }
+
+struct CompleteButton: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .padding(20)
+            .background(Color(.green))
+            .foregroundColor(Color(.white))
+            .clipShape(Capsule())
+            .scaleEffect(configuration.isPressed ? 1.5 : 1)
+            .animation(.easeInOut(duration: 0.2), value: configuration.isPressed)
+    }
+}

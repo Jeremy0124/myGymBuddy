@@ -19,7 +19,7 @@ struct EditExerciseView: View {
         self.exercise = exercise
     }
     var body: some View {
-        Text("EditExerciseView")
+        // Text("EditExerciseView")
         Form {
             Section(header: Text("Add to my Exercise")){
                 TextField("Exercise Name", text: $exerciseTitle)
